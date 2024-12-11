@@ -1,22 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment"
-    android:background="#108172">
+    android:background="#108172"
+    tools:context=".ui.gallery.GalleryFragment">
 
     <!-- Foto de perfil -->
     <ImageView
         android:id="@+id/profileImageView"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/profile"
-        android:contentDescription="@string/profile_image"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
+        android:contentDescription="@string/profile_image"
+        android:src="@drawable/profile"
         app:layout_constraintBottom_toTopOf="@+id/userNameEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,51 +26,67 @@
         android:id="@+id/userNameEditText"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:text="Nombre de Usuario"
+        android:layout_marginBottom="8dp"
         android:hint="Nombre de Usuario"
         android:inputType="textPersonName"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/userEmailEditText"
+        android:text="Nombre de Usuario"
+        app:layout_constraintBottom_toTopOf="@+id/newPasswordEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImageView" />
 
-    <!-- Correo electrónico (input con valor actual) -->
+    <!-- Contraseña Actual (input para cambiar contraseña) -->
+
+    <!-- Nueva Contraseña (input para la nueva contraseña) -->
+
     <EditText
-        android:id="@+id/userEmailEditText"
+        android:id="@+id/currentPasswordEditText"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:text="correo@ejemplo.com"
-        android:hint="Correo Electrónico"
-        android:inputType="textEmailAddress"
-        android:layout_marginBottom="8dp"
+        android:hint="Contraseña Actual"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/newPasswordEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameEditText"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/newPasswordEditText"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="Nueva Contraseña"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/selectPhotoButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/currentPasswordEditText"
+        app:layout_constraintVertical_bias="0.5" />
+
 
     <!-- Botón para seleccionar nueva foto de perfil -->
     <Button
         android:id="@+id/selectPhotoButton"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:backgroundTint="#51C308"
         android:text="Cambiar Foto de Perfil"
         app:layout_constraintBottom_toTopOf="@+id/confirmChangesButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEmailEditText"
-        android:backgroundTint="#51C308"/>
+        app:layout_constraintTop_toBottomOf="@+id/newPasswordEditText" />
 
     <!-- Botón para confirmar cambios -->
     <Button
         android:id="@+id/confirmChangesButton"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:backgroundTint="#51C308"
         android:text="Confirmar Cambios"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectPhotoButton"
-        android:backgroundTint="#51C308"/>
+        app:layout_constraintTop_toBottomOf="@+id/selectPhotoButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

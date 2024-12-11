@@ -2,16 +2,16 @@ package com.example.evaluacionnacional.ui.slideshow;
 
 public class Contacto {
     private String name;
-    private String email;
+    private String username; // Cambiar email por username
     private String photoUrl;
 
     public Contacto() {
         // Constructor vacío necesario para Firestore
     }
 
-    public Contacto(String name, String email, String photoUrl) {
+    public Contacto(String name, String username, String photoUrl) {
         this.name = name;
-        this.email = email;
+        this.username = username;
         this.photoUrl = photoUrl;
     }
 
@@ -23,12 +23,12 @@ public class Contacto {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPhotoUrl() {

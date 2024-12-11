@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.slideshow.SlideshowFragment">
+    tools:context=".ui.slideshow.SlideshowFragment"
+    android:background="#108172">
 
     <!-- Título para Agregar Contacto -->
     <TextView
@@ -22,33 +22,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- EditText para ingresar el correo del contacto -->
+    <!-- EditText para ingresar el nombre de usuario -->
     <EditText
-        android:id="@+id/editTextContactEmail"
+        android:id="@+id/editTextContactUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Correo electrónico del contacto"
         android:layout_marginTop="24dp"
-        android:inputType="textEmailAddress"
+        android:hint="Nombre de usuario del contacto"
+        android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textAddContactTitle" />
 
-    <!-- Botón para verificar correo -->
+    <!-- Botón para verificar el nombre de usuario -->
     <Button
         android:id="@+id/buttonAddContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Verificar Correo"
+        android:text="Verificar Nombre de Usuario"
+        android:backgroundTint="#51C308"
         android:textColor="@android:color/white"
         android:layout_marginTop="16dp"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextContactEmail"/>
+        app:layout_constraintTop_toBottomOf="@id/editTextContactUsername" />
 
     <!-- RecyclerView para mostrar los contactos -->
     <androidx.recyclerview.widget.RecyclerView
@@ -60,5 +59,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonAddContact"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

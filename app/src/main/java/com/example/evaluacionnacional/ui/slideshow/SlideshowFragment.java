@@ -61,7 +61,7 @@ public class SlideshowFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         // Configurar el botón para verificar el correo
-        binding.buttonAddContact.setOnClickListener(v -> checkIfEmailExists());
+        binding.buttonAddContact.setOnClickListener(v -> checkIfUsernameExists());
 
         // Cargar los contactos desde Firestore para el usuario autenticado
         loadContactsFromFirestore();
@@ -70,20 +70,20 @@ public class SlideshowFragment extends Fragment {
     }
 
     // Método para verificar si el correo del contacto existe
-    private void checkIfEmailExists() {
-        String email = binding.editTextContactEmail.getText().toString().trim();
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getContext(), "Por favor ingresa un correo.", Toast.LENGTH_SHORT).show();
+    private void checkIfUsernameExists() {
+        String username = binding.editTextContactUsername.getText().toString().trim();
+        if (TextUtils.isEmpty(username)) {
+            Toast.makeText(getContext(), "Por favor ingresa un nombre de usuario.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Verificar si el correo existe en Firestore
+        // Verificar si el nombre de usuario existe en Firestore
         db.collection("users")
-                .whereEqualTo("email", email)
+                .whereEqualTo("username", username)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     if (!queryDocumentSnapshots.isEmpty()) {
-                        // Si el correo existe, agregar el contacto
+                        // Si el nombre de usuario existe, agregar el contacto
                         for (DocumentSnapshot document : queryDocumentSnapshots) {
                             Contacto contact = document.toObject(Contacto.class);
                             if (contact != null) {
@@ -92,23 +92,24 @@ public class SlideshowFragment extends Fragment {
                             }
                         }
                     } else {
-                        Toast.makeText(getContext(), "El correo no existe.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "El nombre de usuario no existe.", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Error al verificar el correo.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error al verificar el nombre de usuario.", Toast.LENGTH_SHORT).show();
                 });
     }
+
 
     // Método para guardar el contacto en Firestore
     private void saveContactToFirestore(Contacto contact) {
         FirebaseUser user = auth.getCurrentUser();
         if (user != null) {
-            // Verificar si el contacto ya existe en Firestore
+            // Verificar si el contacto ya existe en Firestore usando nombre de usuario
             db.collection("contacts")
                     .document(user.getUid()) // UID del usuario autenticado
                     .collection("userContacts")
-                    .whereEqualTo("email", contact.getEmail())
+                    .whereEqualTo("username", contact.getUsername())
                     .get()
                     .addOnSuccessListener(queryDocumentSnapshots -> {
                         if (queryDocumentSnapshots.isEmpty()) {
@@ -134,6 +135,7 @@ public class SlideshowFragment extends Fragment {
                     });
         }
     }
+
 
     // Método para abrir el chat con el contacto
     private void openChat(Contacto contact) {
