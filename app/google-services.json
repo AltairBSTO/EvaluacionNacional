@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146265861165",
+    "project_id": "evaluacionnacional-4632c",
+    "storage_bucket": "evaluacionnacional-4632c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146265861165:android:2054ee213d03daf63e9ca4",
+        "android_client_info": {
+          "package_name": "com.example.evaluacionnacional"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146265861165-8v1l7u4ir3t7fn1aqjefssflapuf26ci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCodKWyZhe5Kt5xATkQRDEdiiiljiQU0MU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146265861165-8v1l7u4ir3t7fn1aqjefssflapuf26ci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

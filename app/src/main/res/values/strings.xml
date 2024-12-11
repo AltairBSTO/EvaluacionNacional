@@ -1,0 +1,45 @@
+<resources>
+    <!-- General -->
+    <string name="app_name">Evaluación Nacional</string>
+    <string name="cliente_id">146265861165-8v1l7u4ir3t7fn1aqjefssflapuf26ci.apps.googleusercontent.com</string>
+    <string name="title_activity_home_login">Inicio</string>
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar menú de navegación</string>
+    <string name="fab_desc">Agregar nueva acción</string>
+
+    <!-- Encabezado del Navigation Drawer -->
+    <string name="nav_header_title">Usuario Autenticado</string>
+    <string name="nav_header_subtitle">correo@ejemplo.com</string>
+    <string name="nav_header_desc">Encabezado del menú de navegación</string>
+    <string name="nav_header_image_desc">Imagen de perfil del usuario</string>
+
+    <!-- Menú de Navegación -->
+    <string name="menu_home">Inicio</string>
+    <string name="menu_home_desc">Ir al inicio</string>
+
+    <string name="menu_gallery">Galería</string>
+    <string name="menu_gallery_desc">Explora la galería de imágenes</string>
+
+    <string name="menu_slideshow">Presentación</string>
+    <string name="menu_slideshow_desc">Reproduce una presentación</string>
+
+    <string name="menu_contacts">Contactos</string>
+    <string name="menu_contacts_desc">Accede a tu lista de contactos</string>
+
+    <string name="menu_chat">Chats</string>
+    <string name="menu_chat_desc">Consulta tus conversaciones</string>
+
+    <string name="menu_profile">Perfil</string>
+    <string name="menu_profile_desc">Administra la configuración de tu perfil</string>
+
+    <string name="menu_logout">Cerrar Sesión</string>
+    <string name="menu_logout_desc">Cierra la sesión y regresa a la pantalla de inicio de sesión</string>
+
+    <!-- Ajustes -->
+    <string name="action_settings">Configuraciones</string>
+    <string name="title_activity_homelogin">Homelogin</string>
+
+    <string name="profile_image">hjolaxd</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
