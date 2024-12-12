@@ -35,20 +35,23 @@ public class GalleryFragment extends Fragment {
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflar el layout para este fragmento
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
 
         // Inicializar FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
+        // Inicializar Firebase Storage
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+
         // Obtener las vistas del layout
         EditText currentPasswordEditText = root.findViewById(R.id.currentPasswordEditText);
         EditText newPasswordEditText = root.findViewById(R.id.newPasswordEditText);
         Button confirmChangesButton = root.findViewById(R.id.confirmChangesButton);
+        Button uploadImageButton = root.findViewById(R.id.selectPhotoButton); // Botón para seleccionar imagen
+        ImageView profileImageView = root.findViewById(R.id.profileImageView); // ImageView para mostrar la imagen
 
         // Obtener el usuario autenticado
         FirebaseUser user = mAuth.getCurrentUser();
@@ -71,6 +74,11 @@ public class GalleryFragment extends Fragment {
 
                 // Llamar a la función para reautenticar y cambiar la contraseña
                 reauthenticateUser(currentPassword, newPassword, user);
+            });
+
+            // Configurar el botón para subir una imagen
+            uploadImageButton.setOnClickListener(v -> {
+                openImagePicker(); // Método para abrir el selector de imágenes
             });
         }
 
@@ -106,6 +114,12 @@ public class GalleryFragment extends Fragment {
                 });
     }
 
+    // Método para abrir el selector de imágenes
+    private void openImagePicker() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
     // Método para subir la imagen de perfil a Firebase Storage
     private void uploadImageToFirebase(FirebaseUser user, Uri imageUri) {
         // Usa el UID del usuario para crear una ruta única para la imagen
@@ -136,6 +150,12 @@ public class GalleryFragment extends Fragment {
             selectedImageUri = data.getData();
             ImageView profileImageView = getView().findViewById(R.id.profileImageView);
             profileImageView.setImageURI(selectedImageUri); // Mostrar la imagen seleccionada
+
+            // Subir la imagen seleccionada
+            FirebaseUser user = mAuth.getCurrentUser();
+            if (user != null) {
+                uploadImageToFirebase(user, selectedImageUri);
+            }
         }
     }
 }

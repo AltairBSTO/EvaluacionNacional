@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.ChatActivity">
+    tools:context=".ui.home.ChatActivity"
+    android:background="#3E2273">
 
     <!-- TextView para mostrar información del chat (nombre del compañero y tópico) -->
     <TextView
